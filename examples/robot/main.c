@@ -2,13 +2,15 @@
 // This program takes in a serires of buffer words from you terminal
 // The program then takes these words and tokenizes them, it does this in order to 
 // save these words into a respected varibale, such as move or direction
-// a "/" will be used to give a space in between each word.
+// a space " " will be used to give a space in between each word.
+// after these words are saved into the variable, it will then be able to have control of the Xarms movement
+
 
 #include <stdio.h>
 #include <string.h>
 #include "uart.h"
 #include "readLine.h"
-//this is just to see if it's pushing correctly
+
 #define MAX_BUFFER 24
 #define MAX_TOKENS (MAX_BUFFER/2)
 #define MAX_DELIMS 1
@@ -21,7 +23,7 @@ int main(void) {
 
     init_serial();
     char input[MAX_BUFFER + 1] = {};
-    char delims[MAX_DELIMS + 1] = {"/"};
+    char delims[MAX_DELIMS + 1] = {" "};
 
     puts("Serial I/O Test: readLine with tokens");
     printf("Enter text up to %i characters, or end w/ CR\n", MAX_BUFFER);
